@@ -1,14 +1,15 @@
 ---
-- name: syslog
+- name: ACL
   hosts: routers
   gather_facts: no
+  
   tasks:
     - name: Replaces device configuration of listed acls with provided configuration
       cisco.ios.ios_acls:
         config:
         - afi: ipv4
           acls:
-          - name: 110
+          - name: 100
             aces:
             - grant: permit
               protocol_options:
@@ -20,11 +21,6 @@
               destination:
                 address: 192.168.86.0
                 wildcard_bits: 0.0.0.255
-                port_protocol:
-                  eq: www
-              dscp: ef
-              ttl:
-                eq: 10
       register: output
     
     - name: debug message

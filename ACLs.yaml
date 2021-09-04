@@ -1,6 +1,6 @@
 ---
 - name: ACLs gathered
-  hosts: all
+  hosts: routers
   gather_facts: no
   tasks:
     - name: Gather listed acls with provided configurations
