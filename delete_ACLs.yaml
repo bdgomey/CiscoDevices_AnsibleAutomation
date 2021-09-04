@@ -1,0 +1,14 @@
+---
+- name: ACLs gathered
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Delete module attributes of given Interface
+      cisco.ios.ios_acl_interfaces:
+        config:
+        - name: GigabitEthernet0/1
+        state: deleted
+    
+    - name: debug message
+      debug:
+        var: output

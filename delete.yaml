@@ -1,0 +1,8 @@
+---
+- name: network L2 interfaces
+  hosts: R2
+  gather_facts: no
+  tasks:
+    - name: Render the commands for provided configuration
+      ios_l3_interfaces:
+        state: deleted

@@ -1,0 +1,21 @@
+---
+- name: network L2 interfaces
+  hosts: S2
+  gather_facts: no
+
+  
+  tasks:
+    - name: Override device configuration of all l2 interfaces with provided configuration
+      ios_l2_interfaces:
+        config:
+        - name: GigabitEthernet0/2
+          access:
+            vlan: 20
+          voice:
+            vlan: 40
+        state: overridden
+      register: output
+    
+    - name: debug message
+      debug: 
+        var: output

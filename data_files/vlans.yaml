@@ -1,0 +1,7 @@
+vlans:
+  - id: 333
+    name: CustomVLAN
+  - id: 444
+    name: CustomVLAN2
+  - id: 555
+    name: CustomVLAN3

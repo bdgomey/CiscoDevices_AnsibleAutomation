@@ -1,0 +1,16 @@
+---
+- name: jinja model
+  hosts: switches
+  gather_facts: no
+  vars_files:
+    vlans.yaml
+  tasks:
+    - name: jinja template
+      ios_config:
+        src: jinja.j2
+        match: none
+      register: output
+
+    - name: debug message
+      debug:
+        msg: "{{ output }}"

@@ -1,0 +1,14 @@
+---
+- name: ACLs gathered
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Gather listed acls with provided configurations
+      cisco.ios.ios_acls:
+        config:
+        state: gathered
+      register: output
+    
+    - name: debug message
+      debug:
+        var: output
